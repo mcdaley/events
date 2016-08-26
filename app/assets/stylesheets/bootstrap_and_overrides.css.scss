@@ -25,10 +25,11 @@ img {
 main {
   @extend                     .container;
   background-color:           $body-bkgrd;
-  padding-bottom:             40px;
+  padding-bottom:             80px;
   width:                      100%;
   margin-top:                 51px; // accommodate the navbar
 }
+
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -51,13 +52,6 @@ main {
   }
 // apply styles to HTML elements
 // to make views framework-neutral
-main {
-  @extend .container;
-  background-color: #eee;
-  padding-bottom: 80px;
-  width: 100%;
-  margin-top: 51px; // accommodate the navbar
-  }
 section {
   @extend .row;
   margin-top: 20px;
