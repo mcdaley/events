@@ -16,23 +16,31 @@ After cloning the github repository, run the following commands to install the a
 git      clone https://github.com/mcdaley/events
 cd       events
 bundle   install
-bin/rake db:create
-bin/rake db:migrate
-bin/rake db:test:prepare
-bin/rake db:seed              # Load sample data
 ```
 
-**Note**, if you have trouble configuring the database, you can manually 
-create it with the following commands. My development machine environment 
-is a little wacky, so I had to manually create the DB
+Install the DB
 
 ```
 sudo  -u postgres psql
 
-psql: CREATE ROLE     events;
+psql: CREATE ROLE     events with login password 'secret';
+psql: CREATE DATABASE events_development with OWNER events;
 psql: CREATE DATABASE events_development with OWNER events;
 ```
 
+Add the 'secret' password to the database.yml for the development and test environments
+
+**NOTE:** I had issues recreating the test database on a different machine, I am not a
+DB admin, so please forgive me if the instructions do not work for creating the test
+environment.
+
+Create the schema and load example data
+
+```
+bin/rake db:migrate
+bin/rake db:test:prepare
+bin/rake db:seed              # Load sample data
+```
 
 Verify everything is installed correctly by starting the server and navigating 
 to the home page.
