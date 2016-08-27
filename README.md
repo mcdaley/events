@@ -25,7 +25,7 @@ sudo  -u postgres psql
 
 psql: CREATE ROLE     events with login password 'secret';
 psql: CREATE DATABASE events_development with OWNER events;
-psql: CREATE DATABASE events_development with OWNER events;
+psql: CREATE DATABASE events_test        with OWNER events;
 ```
 
 Add the 'secret' password to the database.yml for the development and test environments
