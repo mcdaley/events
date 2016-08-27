@@ -5,7 +5,7 @@
   %div.col-xs-2.col-sm-2.col-md-2.col-lg-2
     %h4 Filter Events
     - @organizations.each do |org|
-      %h6.org-link= link_to org.name, events_path( {org: org} )
+      %h6.org-link= link_to "#{org.name} (#{org.domain})", events_path( {org: org} )
       %ul.host-list
         - org.hosts.each do |host|
           %li.host-link= link_to host.name, events_path( {hostname: host} )
@@ -23,6 +23,6 @@
       - @events.each do |e|
         %tr
           %td= e.host.name
-          %td= e.host.organization.name
+          %td= e.host.organization.domain
           %td= e.message
           %td= e.timestamp
