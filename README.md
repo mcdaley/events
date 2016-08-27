@@ -23,7 +23,8 @@ Install the DB
 ```
 sudo  -u postgres psql
 
-psql: CREATE ROLE     events with login password 'secret';
+psql: CREATE ROLE     events             with login password 'secret';
+psql: ALTER  USER     events             with CREATEDB;
 psql: CREATE DATABASE events_development with OWNER events;
 psql: CREATE DATABASE events_test        with OWNER events;
 ```
