@@ -50,16 +50,18 @@ Retrieving events by organization
 To retrieve the events by organization, use the 'Event.events_by_org scope. The method
 takes 3 arguments:
 
-* +Organization+ - Organization to retrieve events for.
-* +N+            - Number of events to retrieve, default is 10
-* +sort+         - Sort by timestamp, options are :asc, :desc and default is :desc
+* Organization - Organization to retrieve events for.
+* N            - Number of events to retrieve, default is 10
+* sort         - Sort by timestamp, options are :asc, :desc and default is :desc
 
 Example usage
 
 ```
-org             = Organization.find(1)
-events          = Event.events_by_org(org)
-events_1_5_asc  = Event.events_by_org(org, 5, :asc)
+bin/rails console
+
+> org             = Organization.find(1)
+> events          = Event.events_by_org(org)
+> events_1_5_asc  = Event.events_by_org(org, 5, :asc)
 ```
 
 Retrieving events by host
@@ -68,16 +70,18 @@ Retrieving events by host
 To retrieve the events by organization, use the 'Event.events_by_org scope. The method
 takes 3 arguments:
 
-* +Host+  - Host to retrieve events for.
-* +N+     - Number of events to retrieve, default is 10
-* +sort+  - Sort by timestamp, options are :asc, :desc and default is :desc
+* Host  - Host to retrieve events for.
+* N     - Number of events to retrieve, default is 10
+* sort  - Sort by timestamp, options are :asc, :desc and default is :desc
 
 Example usage
 
 ```
-host            = Host.find(1)
-events          = Event.events_by_org(host)
-events_1_5_asc_ = Event.events_by_org(host, 5, :asc)
+bin/rails console
+
+> host            = Host.where(name: 'kangaroo').first
+> events          = Event.events_by_host(host)
+> events_1_3_asc  = Event.events_by_host(host, 3, :asc)
 ```
 
 Tests
@@ -90,4 +94,6 @@ bin/rspec spec/models
 
 Issues
 -------------
+* Had some issues verifying db creation on my development machine  because of how
+I had installed postreSQL
 
